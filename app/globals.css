@@ -4,23 +4,77 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #080808;
+}
+
+#dot-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 95vw;
+    height: 92vh;
+
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.hero .content {
+    position: relative;
+    display:flex;
+    z-index: 1;
+
+    height: 100%;
+    overflow-y: auto;     /* card scroll */
+    padding: 45px;
+
+    color: white;
+}
+/* basically split in half cuz of fel */
+.hero .content >div{
+  flex: 1;
+}
+
+.name{
+  font-family: var(--font-body);
+  font-weight: 100;
+  line-height: 1; 
+}
+.title{
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+.subtitle{
+  font-family: var(--font-body);
+  font-weight: 100;
+}
+.section_button{
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
 }
